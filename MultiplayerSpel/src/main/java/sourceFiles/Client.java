@@ -7,13 +7,13 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class ChatClient
+public class Client
 {
 	final static int ServerPort = 1234;
 
 	public static void main(String args[]) throws UnknownHostException, IOException
 	{
-		Scanner scn = new Scanner(System.in);
+		final Scanner scn = new Scanner(System.in);
 		
 		// getting localhost ip
 		InetAddress ip = InetAddress.getByName("localhost");
@@ -22,8 +22,8 @@ public class ChatClient
 		Socket s = new Socket(ip, ServerPort);
 		
 		// obtaining input and out streams
-		DataInputStream dis = new DataInputStream(s.getInputStream());
-		DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+		final DataInputStream dis = new DataInputStream(s.getInputStream());
+		final DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
 		// sendMessage thread
 		Thread sendMessage = new Thread(new Runnable()
