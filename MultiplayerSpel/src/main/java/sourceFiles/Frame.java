@@ -12,9 +12,9 @@ import javax.swing.*;
 
 public class Frame extends JPanel {
 	
-	Ufo ufo = new Ufo(); 
+	public Ufo ufo = new Ufo(); 
 	
-	
+	@Override
 	public void paintComponent(Graphics g) {
         Triangle_Shape triangleShape = new Triangle_Shape(new Point2D.Double(50, 0),
                 new Point2D.Double(100, 100), new Point2D.Double(0, 100));
@@ -27,15 +27,16 @@ public class Frame extends JPanel {
         g2d.drawImage(op.filter((BufferedImage)ufo.image, null), ufo.x, ufo.y, null);
     }
 	
+	
+	
     public static void main (String [] args){
-        JFrame frame = new JFrame("Draw Triangle");
+    	JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBackground(Color.white);
         frame.setSize(500, 500);
-
         Frame panel = new Frame();
-        frame.add(panel);
-        frame.addKeyListener(new MKeyListener());
+        frame.addKeyListener(new MKeyListener(panel.ufo, panel));
+       frame.add(panel);
         frame.setVisible(true);
     }
 }
