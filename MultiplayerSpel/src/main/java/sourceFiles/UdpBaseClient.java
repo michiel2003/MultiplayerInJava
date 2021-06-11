@@ -72,6 +72,6 @@ public class UdpBaseClient {
     }
 
 	public static void main(String args[]) {
-		UdpBaseClient client = new UdpBaseClient("192.168.17.85", 5000);
+		UdpBaseClient client = new UdpBaseClient("192.168.17.114", 5000);
 	}
 }
