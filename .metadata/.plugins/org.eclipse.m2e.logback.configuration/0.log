@@ -1,0 +1,14 @@
+2021-06-11 08:39:36,992 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-06-11 08:44:11,854 [Worker-10: Creating project "MultiplayerSpel"] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: 6IB:MultiplayerSpel:0.0.1-SNAPSHOT @ U:\JavaProg\Game multi\MultiplayerSpel\pom.xml.
+2021-06-11 08:44:13,290 [Worker-10: Creating project "MultiplayerSpel"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /MultiplayerSpel/src/main/java
+2021-06-11 08:44:13,293 [Worker-10: Creating project "MultiplayerSpel"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /MultiplayerSpel/src/main/resources
+2021-06-11 08:44:13,297 [Worker-10: Creating project "MultiplayerSpel"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /MultiplayerSpel/src/test/java
+2021-06-11 08:44:13,299 [Worker-10: Creating project "MultiplayerSpel"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /MultiplayerSpel/src/test/resources
+2021-06-11 08:44:14,776 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-11 08:44:14,815 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-06-11 08:44:14,818 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-11 08:44:14,826 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-06-11 08:48:53,580 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-11 08:48:53,596 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-06-11 08:48:53,598 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-06-11 08:48:53,605 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
