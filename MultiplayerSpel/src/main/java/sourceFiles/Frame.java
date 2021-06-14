@@ -12,7 +12,8 @@ import javax.swing.*;
 
 public class Frame extends JPanel {
 	
-	public Ufo ufo = new Ufo(); 
+	public Ufo ufo = new Ufo();
+	public Ufo ufo2 = new Ufo(); 
 	
 	@Override
 	public void paintComponent(Graphics g) {
@@ -21,11 +22,16 @@ public class Frame extends JPanel {
 //        Triangle_Shape triangleShape = new Triangle_Shape(new Point2D.Double(50, 0),
 //                new Point2D.Double(100, 100), new Point2D.Double(0, 100));
         double rotationRequired = Math.toRadians (ufo.rotation);
-        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, ufo.x + 30, ufo.y + 30);
+        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, 70, 70);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+        
+        double rotationRequired2 = Math.toRadians (ufo.rotation);
+        AffineTransform tx2 = AffineTransform.getRotateInstance(rotationRequired, 70, 70);
+        AffineTransformOp op2 = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 //        g2d.drawImage(ufo.image, ufo.x, ufo.y, null);
      // Drawing the rotated image at the required drawing locations
-        g2d.drawImage(op.filter((BufferedImage)ufo.image, null), ufo.x, ufo.y, null);
+        g2d.drawImage(op.filter((BufferedImage)ufo.image, null), (int)ufo.x, (int)ufo.y, null);
+        g2d.drawImage(op2.filter((BufferedImage)ufo2.image, null), (int)ufo2.x, (int)ufo2.y, null);
     }
 	
 	
