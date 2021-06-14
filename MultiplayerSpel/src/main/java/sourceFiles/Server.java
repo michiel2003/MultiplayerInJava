@@ -122,6 +122,8 @@ class ClientHandler implements Runnable
 			} catch (IOException e) {
 				
 				e.printStackTrace();
+			} catch (NoSuchElementException e1) {
+				continue;
 			}
 			
 		}

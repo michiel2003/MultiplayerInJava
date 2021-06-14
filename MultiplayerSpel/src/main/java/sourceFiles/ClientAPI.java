@@ -1,39 +1,48 @@
 package sourceFiles;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
+//Java implementation for multithreaded chat client
+//Save file as Client.java
+
+import java.io.*;
+import java.net.*;
 import java.util.Scanner;
 
-public class ClientInstancer {
-
+public class ClientAPI
+{
 	final static int ServerPort = 1234;
+	
+	final DataOutputStream dos;
+	final DataInputStream dis;
+	InetAddress ip;
+	final Scanner scn;
+	
 
-	public ClientInstancer() throws IOException {
-		final Scanner scn = new Scanner(System.in);
-
+	public ClientAPI() throws IOException
+	{
+		scn = new Scanner(System.in);
+		
 		// getting localhost ip
-		InetAddress ip = InetAddress.getByName("192.168.17.85");
-
+		ip = InetAddress.getByName("192.168.17.51");
+		
 		// establish the connection
 		Socket s = new Socket(ip, ServerPort);
-
+		
+		dis = new DataInputStream(s.getInputStream());
+		dos = new DataOutputStream(s.getOutputStream());
+		
 		// obtaining input and out streams
-		final DataInputStream dis = new DataInputStream(s.getInputStream());
-		final DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+		
 
 		// sendMessage thread
-		Thread sendMessage = new Thread(new Runnable() {
+		Thread sendMessage = new Thread(new Runnable()
+		{
 			@Override
 			public void run() {
 				while (true) {
 
 					// read the message to deliver.
 					String msg = scn.nextLine();
-
+					
 					try {
 						// write on the output stream
 						dos.writeUTF(msg);
@@ -43,9 +52,10 @@ public class ClientInstancer {
 				}
 			}
 		});
-
+		
 		// readMessage thread
-		Thread readMessage = new Thread(new Runnable() {
+		Thread readMessage = new Thread(new Runnable()
+		{
 			@Override
 			public void run() {
 
@@ -67,12 +77,14 @@ public class ClientInstancer {
 
 	}
 	
-	public static void main(String[] args) {
-		try {
-			ClientInstancer client = new ClientInstancer();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void write(String text) throws IOException {
+		this.dos.writeUTF(text);
 	}
+
+	public static void main(String[] args) throws IOException {
+		ClientAPI client = new ClientAPI();
+		client.write("test");
+		client.write("another test");
+	}
+	
 }
