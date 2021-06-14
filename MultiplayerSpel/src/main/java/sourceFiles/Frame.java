@@ -27,6 +27,10 @@ public class Frame extends JPanel {
         g2d.drawImage(op.filter((BufferedImage)ufo.image, null), ufo.x, ufo.y, null);
     }
 	
+	public void clear() {
+		this.getGraphics().clearRect(0, 0, 800, 800);
+	}
+	
 	
 	
     public static void main (String [] args){
@@ -36,7 +40,7 @@ public class Frame extends JPanel {
         frame.setSize(500, 500);
         Frame panel = new Frame();
         frame.addKeyListener(new MKeyListener(panel.ufo, panel));
-       frame.add(panel);
+        frame.add(panel);
         frame.setVisible(true);
     }
 }
