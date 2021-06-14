@@ -17,10 +17,9 @@ class MKeyListener extends KeyAdapter{
 	@Override
 	public void keyPressed(KeyEvent event) {
 		System.out.println(event.getKeyCode());
-		if (event.getExtendedKeyCode() == 37) {
+		if (event.getExtendedKeyCode() == 39) {
 			ufo.rotation +=4;
 			System.out.println(ufo.rotation);
-			panel.clear();
 			panel.repaint();
 		}
 	}

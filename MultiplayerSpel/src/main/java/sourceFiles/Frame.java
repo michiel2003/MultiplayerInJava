@@ -16,32 +16,34 @@ public class Frame extends JPanel {
 	
 	@Override
 	public void paintComponent(Graphics g) {
-        Triangle_Shape triangleShape = new Triangle_Shape(new Point2D.Double(50, 0),
-                new Point2D.Double(100, 100), new Point2D.Double(0, 100));
-        Graphics2D g2d = (Graphics2D) g.create();
+		Graphics2D g2d = (Graphics2D) g.create();
+		g2d.clearRect(0, 0, 1400, 1400);
+//        Triangle_Shape triangleShape = new Triangle_Shape(new Point2D.Double(50, 0),
+//                new Point2D.Double(100, 100), new Point2D.Double(0, 100));
         double rotationRequired = Math.toRadians (ufo.rotation);
-        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, ufo.x, ufo.y);
+        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, ufo.x + 30, ufo.y + 30);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 //        g2d.drawImage(ufo.image, ufo.x, ufo.y, null);
      // Drawing the rotated image at the required drawing locations
         g2d.drawImage(op.filter((BufferedImage)ufo.image, null), ufo.x, ufo.y, null);
     }
 	
-	public void clear() {
-		this.getGraphics().clearRect(0, 0, 800, 800);
-	}
-	
 	
 	
     public static void main (String [] args){
-    	JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBackground(Color.white);
-        frame.setSize(500, 500);
-        Frame panel = new Frame();
-        frame.addKeyListener(new MKeyListener(panel.ufo, panel));
-        frame.add(panel);
-        frame.setVisible(true);
+    	EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+		    	JFrame frame = new JFrame();
+		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        frame.setBackground(Color.white);
+		        frame.setSize(500, 500);
+		        Frame panel = new Frame();
+		        frame.addKeyListener(new MKeyListener(panel.ufo, panel));
+		        frame.add(panel);
+		        frame.setVisible(true);
+            }
+    	});
     }
 }
 
