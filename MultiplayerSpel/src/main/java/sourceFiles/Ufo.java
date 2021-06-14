@@ -14,10 +14,10 @@ public class Ufo {
 	
 	public BufferedImage image;
 	
-	public int x = 100;
-    public int y = 100;
+	public double x = 100;
+    public double y = 100;
 	
-	public double rotation = 90;
+	public double rotation = 0;
 	
 	public Ufo() {
 		try {
@@ -26,6 +26,15 @@ public class Ufo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void moveForward() {
+		double cosinus = Math.cos(Math.toRadians(rotation-90));
+		double sinus = Math.sin(Math.toRadians(rotation-90));
+		double xplus = cosinus;
+		x += xplus*4;
+		double yplus = sinus;
+		y += yplus*4;
 	}
 
 }
